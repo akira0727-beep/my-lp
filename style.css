@@ -1,0 +1,418 @@
+@charset "UTF-8";
+/* ---------------------------------------------
+  reset
+--------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* 解析タグの隙間対策 */
+body > img {
+  display: none;
+}
+
+.lp_main div, .lp_main span, .lp_main iframe, .lp_main h1, .lp_main h2, .lp_main h3, .lp_main h4, .lp_main h5, .lp_main h6, .lp_main p, .lp_main address, .lp_main img, .lp_main small, .lp_main strong, .lp_main sub, .lp_main sup, .lp_main dl,
+.lp_main dt, .lp_main dd, .lp_main ol, .lp_main ul, .lp_main form, .lp_main label, .lp_main table, .lp_main caption, .lp_main tbody, .lp_main tfoot, .lp_main thead, .lp_main tr, .lp_main th, .lp_main td, .lp_main article,
+.lp_main aside, .lp_main footer, .lp_main header, .lp_main menu, .lp_main nav, .lp_main section, .lp_main video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.lp_main article, .lp_main aside, .lp_main details, .lp_main figcaption, .lp_main figure,
+.lp_main footer, .lp_main header, .lp_main menu, .lp_main nav, .lp_main section {
+  display: block;
+}
+.lp_main ol, .lp_main ul {
+  list-style: none;
+}
+.lp_main :focus {
+  outline: 0;
+}
+.lp_main table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.lp_main *,
+.lp_main *::before,
+.lp_main *::after {
+  box-sizing: border-box;
+}
+.lp_main img,
+.lp_main video,
+.lp_main svg {
+  display: block;
+  height: auto;
+  vertical-align: bottom;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+/* ---------------------------------------------
+  common
+--------------------------------------------- */
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+.lp_main {
+  width: min(100%, 750px);
+  margin: 0 auto;
+}
+
+/* positionで配置したい要素の外側に使用 */
+.lp_main .p_box {
+  position: relative;
+}
+
+/* ---------------------------------------------
+  動画
+--------------------------------------------- */
+.douga {
+  position: relative;
+}
+.douga .cv_btn {
+  position: absolute;
+  top: 74%; 
+  transform: translateX(-0%);
+}
+
+/* ---------------------------------------------
+  cv
+--------------------------------------------- */
+.lp_main .cv_area {
+  margin-bottom: 5%;
+}
+.lp_main .cv_btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  width: calc(588 / 750 * 100%);
+  margin: 0 auto;
+}
+/* ---------------------------------------------
+  cv4
+--------------------------------------------- */
+.lp_main .cv_area {
+  margin-bottom: 5%;
+}
+.lp_main .cv_btn4 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18%;
+  width: calc(588 / 750 * 100%);
+  margin: 0 auto;
+}
+
+
+/* ---------------------------------------------
+  cv3
+--------------------------------------------- */
+.lp_main .cv_area {
+  margin-bottom: 5%;
+}
+.lp_main .cv_btn3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8%;
+  width: calc(588 / 750 * 100%);
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------
+  cv2
+--------------------------------------------- */
+.lp_main .cv_area {
+  margin-bottom: 5%;
+}
+.lp_main .cv_btn2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  width: calc(588 / 750 * 100%);
+  margin: 0 auto;
+}
+
+
+
+/* ---------------------------------------------
+ アコーディオン用 アイコン
+--------------------------------------------- */
+
+/* アイコン： 共通
+------------------------------ */
+.lp_main .icn_area {
+  --icon-size: min(calc((30 / 750) * 100vw), 30px); /* アイコンのサイズ */
+
+  position: relative;
+  display: flex;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  align-items: center;
+  justify-content: center;
+  /* background-color: #ccc; */
+}
+
+/* アイコン： プラス
+------------------------------ */
+.lp_main .icn__plus::before,
+.lp_main .icn__plus::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: min(calc((3 / 750)* 100vw), 3px); /* 線の幅 */
+  background: 
+  #ffffff; /* 線の色 */
+}
+.lp_main .icn__plus::before {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.lp_main .icn__plus.is_active::before {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+
+/* アイコン： 下向き くの字
+------------------------------ */
+.lp_main .icn__arrowBorder {
+  --arrow-line-thickness: min(calc((3 / 750) * 100vw), 3px); /* 線の太さ */
+  --arrow-width: min(calc((20 / 750) * 100vw), 20px); /* 矢印の幅 */
+  --arrow-offset: calc(var(--arrow-width) / 3.3); /* 矢印の左右のオフセット */
+  --arrow-color: #ffffff; /* 矢印の色 */
+}
+
+.lp_main .icn__arrowBorder::before,
+.lp_main .icn__arrowBorder::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: var(--arrow-width);
+  height: var(--arrow-line-thickness);
+  background-color: var(--arrow-color);
+  border-radius: calc(var(--arrow-line-thickness) / 2);
+  transform-origin: center;
+}
+.lp_main .icn__arrowBorder::before {
+  top: calc(50% - var(--arrow-line-thickness) / 2);
+  left: calc(50% - var(--arrow-width) / 2 - var(--arrow-offset));
+  transform: rotate(45deg); 
+}
+.lp_main .icn__arrowBorder::after {
+  top: calc(50% - var(--arrow-line-thickness) / 2);
+  left: calc(50% - var(--arrow-width) / 2 + var(--arrow-offset));
+  transform: rotate(-45deg);
+}
+.lp_main .icn__arrowBorder.is_active::before {
+  transform: rotate(-45deg);
+}
+.lp_main .icn__arrowBorder.is_active::after {
+  transform: rotate(45deg);
+}
+
+
+/* アイコン： 下向き 三角
+------------------------------ */
+.lp_main .icn__arrow {
+  --arrow-height: min(calc((20 / 750) * 100vw), 20px); /* 三角形の高さ */
+  --arrow-width: min(calc((14 / 750) * 100vw), 14px); /* 三角形の幅 */
+  --arrow-color: #6e6e6e; /* 三角形の色 */
+}
+
+.lp_main .icn__arrow::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: var(--arrow-height);
+  border-left-width: var(--arrow-width);
+  border-right-width: var(--arrow-width);
+  border-bottom-width: 0;
+  border-color: var(--arrow-color) transparent transparent transparent;
+}
+.lp_main .icn__arrow.is_active::before {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+/* アイコン： 下向き 三角角丸
+------------------------------ */
+.lp_main .icn_arrowRound,
+.lp_main .icn_arrowRound::before,
+.lp_main .icn_arrowRound::after{
+  width: 1.5vmin;
+  height: 1.5vmin;
+  background: #ffffff;
+}
+
+.lp_main .icn_arrowRound::before,
+.lp_main .icn_arrowRound::after {
+  content: "";
+  position: absolute;
+}
+
+.lp_main .icn_arrowRound {
+  position: relative;
+  border-top-left-radius: 30%;
+  transform: rotate(90deg) skewY(30deg) scaleX(.86666) translate(-30%, -10%);
+}
+
+.lp_main .icn_arrowRound::before {
+  border-top-right-radius: 30%;
+  transform: skewX(-45deg) translateX(50%);
+}
+
+.lp_main .icn_arrowRound::after {
+  border-bottom-left-radius: 30%;
+  transform: skewY(-45deg) translateY(50%);
+}
+
+.lp_main .icn_area.is_active .icn_arrowRound {
+  transform: rotate(150deg) skewY(30deg) scaleX(.86666) translate(-10%, -30%);
+}
+
+
+/* ---------------------------------------------
+ アコーディオン
+--------------------------------------------- */
+.lp_main .aco_btn {
+  position: relative;
+  cursor: pointer;
+}
+.lp_main .aco_btn .icn_area {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.lp_main .aco_main {
+  display: none;
+}
+
+
+/* ---------------------------------------------
+ slide
+--------------------------------------------- */
+.lp_main .slide_area {
+  position: relative;
+  margin-bottom: 5%;
+}
+.lp_main .slide_area .swiper {
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  padding-bottom: min(calc((50 / 750)* 100vw), 50px);
+}
+
+/* 左右の矢印アイコン */
+.lp_main .slide_area .swiper-button-next,
+.lp_main .slide_area .swiper-button-prev {
+  top: calc((100% - 50px) * 0.5);  /* ページネーションのサイズをマイナス */
+  margin-top: -25px; /* ボタンの高さの半分 */
+  width: min(calc((38 / 750)* 100vw), 38px);
+  height: min(calc((50 / 750)* 100vw), 50px);
+}
+.lp_main .slide_area .swiper-button-next:after,
+.lp_main .slide_area .swiper-button-prev:after {
+  content: url(../img/slide_arrow.png);
+  font-size: 0;
+}
+.lp_main .slide_area .swiper-button-prev:after {
+  transform: scale(-1, 1);
+}
+
+/* ページネーション */
+.lp_main .slide_area .swiper-pagination {
+  bottom: 0;
+}
+.lp_main .slide_area .swiper-pagination-bullet {
+  width: min(calc((20 / 750)* 100vw), 20px);
+  height: min(calc((20 / 750)* 100vw), 20px);
+  margin: 0 min(calc((10 / 750)* 100vw), 10px);
+  background: #a7a7a7;
+  opacity: 1;
+}
+.lp_main .slide_area .swiper-pagination-bullet-active {
+  background: #9f1e1e;
+  opacity: 1;
+}
+
+
+
+/* ---------------------------------------------
+ faq
+--------------------------------------------- */
+.lp_main .sec_faq {
+  padding-bottom: 10%;
+  background-color: #ffffff;
+  padding-bottom: 300vh;
+}
+.lp_main .faq_list {
+  width: 90%;
+  margin: 0 auto;
+}
+.lp_main .faq_list dt:not(:first-child) {
+  margin-top: 5%;
+}
+
+
+/* ---------------------------------------------
+ 追従ボタン
+--------------------------------------------- */
+.lp_main .bl_floatArea {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .4s, opacity .4s;
+  box-sizing: border-box;
+}
+.lp_main .bl_floatArea.is_show {
+  visibility: visible;
+  opacity: 1;
+}
+.lp_main .bl_floatArea_inner {
+  max-width: 750px;
+  margin:0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ボタン */
+.lp_main .bl_floatArea_btn {
+  display: block;
+}
+.lp_main .bl_floatArea_btn img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 背景色付き ver */
+.lp_main .lp_main .bl_floatArea.bl_floatArea__bg {
+  background-color: rgba(255, 255, 255, .5);
+}
+/* パディングなし ver */
+.lp_main .bl_floatArea.bl_floatArea__p0 .bl_floatArea_inner {
+  padding: 0;
+}
